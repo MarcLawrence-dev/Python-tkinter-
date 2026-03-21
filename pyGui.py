@@ -1,4 +1,5 @@
 import tkinter as TK
+from tkinter import messagebox
 
 root = TK.Tk()
 root.title("Log in form")
@@ -16,9 +17,10 @@ def loginButton():
     else:
         attempts += 1
         label.config(text=f"Incorrect username or password. Attempt {attempts}/3")
+        
 
         if attempts >= 3:
-            label.config(text="Too many failed attempts. Please try again later.")
+            messagebox.showwarning("Login Failed", "Incorrect username or password. Please try again.")
             root.destroy()
 
 #Username and password labels and entry fields
